@@ -27,12 +27,13 @@ class Binary:
 		return (bytes.fromhex(BitArray(bin=data).hex)).decode('utf-8')
 	
 	def encode_codepoint(self, data): #utf-8 code point to 21-bit string
+		#TODO: Figure out what the function does and rewrite it clearly
 		#The last 2 bits are used to determine how many bits there were before padding
 		index = 0
 		binary = ""
 		d = self.encode_bitstring(data)
 		for c in d:
-			if index == 0 and c == 0:
+			if index == 0 and c == "0":
 				return d[1:].ljust(21, "0")
 			if c == "1":
 				index += 1
@@ -60,6 +61,7 @@ class Binary:
 			
 	@staticmethod
 	def decode_codepoint(self, data):
+		#TODO: Complete the function??
 		bit = data[-2:0]
 		print("data " + data)
 		print("bit " + str(bit))
